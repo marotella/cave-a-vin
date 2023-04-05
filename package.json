@@ -1,0 +1,20 @@
+{
+  "name": "cave-a-vin-backend",
+  "version": "1.0.0",
+  "description": "A virtual wine cellar, where you can find, review, and view wines.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marotella/cave-a-vin-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marotella/cave-a-vin-backend/issues"
+  },
+  "homepage": "https://github.com/marotella/cave-a-vin-backend#readme"
+}
