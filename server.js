@@ -15,6 +15,11 @@ app.get("/", (req, res)=>{
     res.send("Hey!")
 })
 
+//Index Route:
+app.get("/wines", (req, res) => {
+    res.send("winelist")
+}
+)
 
 //PORT
 const PORT = process.env.PORT || 4000
