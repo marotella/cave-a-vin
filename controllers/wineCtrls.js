@@ -20,18 +20,44 @@ const getWine = (req,res) => {
 
 //Post Create Route
 const createWine = (req,res) => {
-    db.Wine.create({name:"testing"})
-    .then((res)=> {console.log(res)})
-    res.send("createWine")
+    db.Wine.create(req.body)
+    .then((createdWine) => {
+        if(!createdWine) {
+            res.status(400).json({message: "Cannot create a new wine."})
+        }else{
+            res.status(201).json({data: createWine, message: "Wine created"})
+        }
+    })
 }
 
-//Post Update Route
+//  UPDATE ROUTE
+const updateWine = (req, res) => {
+    db.Wine.findByIdAndUpdate(req.params.id, req.body, {new: true})
+    .then((updatedWine) => {
+        if(!updatedWine){
+            res.status(400).json({Message: 'Could not update wine'})
+        } else {
+            res.status(200).json({Data: updatedWine, Message: "Wine updated"})
+        }
+    })
+}
 
-
-//Delete Route
+// DELETE ROUTE
+const deleteWine = (req, res) => {
+    db.Wine.findByIdAndDelete(req.params.id)
+    .then((deletedWine) => {
+        if(!deletedWine){
+            res.status(400).json({Message: 'Could not delete wine'})
+        } else {
+            res.status(200).json({Data: deletedWine, Message: "Wine deleted"})
+        }
+    })
+}
 
 
 module.exports = {
     getWine,
-    createWine
+    createWine,
+    deleteWine,
+    updateWine
 }
