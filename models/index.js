@@ -13,3 +13,8 @@ const db = mongoose.connection
 db.on("open", () => console.log("Your are connected to mongoose"))
 db.on("close", () => console.log("Your are disconnected from mongoose"))
 db.on("error", (error) => console.log(error));
+
+
+module.exports = {
+    Wine: require('./wine')
+}
