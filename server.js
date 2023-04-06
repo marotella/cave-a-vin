@@ -1,25 +1,22 @@
 //Dependencies
+require("dotenv").config
 const express = require("express")
 const cors = require("cors")
 
 //Objects/Variables
 const app = express()
-
+const routes = require("./routes/index")
 //Middleware
 app.use(cors())
 
 //Routes
+app.use("/", routes)
 
-//HOME Route:
-app.get("/", (req, res)=>{
-    res.send("Hey!")
+
+//catch non-routes
+app.use((req,res)=> {
+    res.status(404).json({message: "Not a proper route"})
 })
-
-//Index Route:
-app.get("/wines", (req, res) => {
-    res.send("winelist")
-}
-)
 
 //PORT
 const PORT = process.env.PORT || 4000
