@@ -3,15 +3,15 @@ const mongoose = require("mongoose");
 
 // Mongoose schema 
 const WineSchema = new mongoose.Schema({
-    "winery": String,
-    "wine": String,
-    "rating": {
-        "average": String,
-        "reviews": String,
+    winery: String,
+    wine: String,
+    rating: {
+        average: String,
+        reviews : String,
     },
-    "location": String,
-    "image": String,
-    "id": Number
+    location: String,
+    image: String,
+    id: Number
 });
 
 // Create a Mongoose model based on the Wine schema
