@@ -1,5 +1,6 @@
 //wines
 const db = require("../models")
+const wine = require("../models/wine")
 console.log(db)
 //Route logic
 
