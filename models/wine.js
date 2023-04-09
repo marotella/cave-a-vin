@@ -7,11 +7,11 @@ const WineSchema = new mongoose.Schema({
     wine: String,
     rating: {
         average: String,
-        reviews : String,
+        reviews: String,
     },
     location: String,
     image: String,
-    id: Number
+    id: Number,
 });
 
 // Create a Mongoose model based on the Wine schema
