@@ -1,5 +1,6 @@
 //wines
 const db = require("../models")
+const wine = require("../models/wine")
 console.log(db)
 //Route logic
 
@@ -11,7 +12,7 @@ const getWine = (req,res) => {
         if(!foundWine){
             res.status(404).json({message: "Cannot find wine."})
         }else{
-            res.status(200).json({data: foundPeople})
+            res.status(200).json({data: foundWine})
         }
     })
     
@@ -25,9 +26,10 @@ const createWine = (req,res) => {
         if(!createdWine) {
             res.status(400).json({message: "Cannot create a new wine."})
         }else{
-            res.status(201).json({data: createWine, message: "Wine created"})
-        }
+            res.status(201).json({data: createdWine, message: "Wine created"})
+            console.log(createdWine) }
     })
+
 }
 
 //  UPDATE ROUTE

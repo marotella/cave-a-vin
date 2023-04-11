@@ -1,5 +1,5 @@
 //Dependencies
-require("dotenv").config
+require("dotenv").config()
 const express = require("express")
 const cors = require("cors")
 
@@ -8,7 +8,8 @@ const app = express()
 const routes = require("./routes/index")
 //Middleware
 app.use(cors())
-
+app.use(express.urlencoded({extended: true}))
+app.use(express.json()); // parse json bodies
 //Routes
 app.use("/", routes)
 
