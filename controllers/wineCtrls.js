@@ -17,7 +17,17 @@ const getWine = (req,res) => {
     })
     
 }
-
+//New Route
+const getWineById = (req, res) => {
+    db.Wine.findById(req.params.id)
+    .then((foundWine) => {
+        if(!foundWine) {
+            res.status(404).json({message: "Cannot find wine"})
+        } else {
+            res.status(200).json({ data: foundWine})
+        }
+    })
+}
 
 //Post Create Route
 const createWine = (req,res) => {
@@ -61,5 +71,6 @@ module.exports = {
     getWine,
     createWine,
     deleteWine,
-    updateWine
+    updateWine,
+    getWineById
 }
