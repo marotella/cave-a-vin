@@ -9,7 +9,7 @@ const UserSchema = new mongoose.Schema({
 });
 
 // Create a Mongoose model based on the user schema
-const Wine = mongoose.model("User", UserSchema);
+const User = mongoose.model("User", UserSchema);
 
 // Export the Wine model from the module
 module.exports = User;
