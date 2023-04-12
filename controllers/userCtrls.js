@@ -29,7 +29,26 @@ const register = (req, res) => {
         }
     })
 }
-module.exports = {
-    register
-}
 
+
+//This route creates the session for the user once they log in that can be used to access different levels of the account.
+const signin = async (req, res) => {
+    const foundUser = await User.findOne({ email: req.body.email }).exec();
+  
+    if (foundUser) {
+      const validLogin = bcrypt.compareSync(req.body.password, foundUser.password);
+      if (validLogin) {
+        req.session.currentUser = foundUser;
+        res.redirect("/wines");
+      } else {
+        res.send("Invalid username and/or password.");
+      }
+    } else {
+      res.send("Invalid username and/or password.");
+    }
+  };
+  
+  module.exports = {
+    register,
+    signin
+  };
