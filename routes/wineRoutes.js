@@ -5,10 +5,10 @@ const {wineCtrl} = require("../controllers")
 //ROUTES:
 // router.get("/seed", wineCtrl.seedData)
 router.get("/", wineCtrl.getWine)
-router.post("/new", wineCtrl.createWine)
+router.post("/:id", wineCtrl.createWine)
 router.put("/:id", wineCtrl.updateWine)
 router.delete("/:id", wineCtrl.deleteWine)
-router.get("/:id", wineCtrl.getWineById)
+// router.get("/:id", wineCtrl.getWineById)
 
 
 module.exports= router;
