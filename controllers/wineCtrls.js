@@ -15,7 +15,6 @@ const getWine = (req,res) => {
             res.status(200).json({data: foundWine})
         }
     })
-    
 }
 
 
