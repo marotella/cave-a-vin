@@ -1,6 +1,6 @@
 //wines
 const db = require("../models")
-const wine = require("../models/wine")
+const Wine = require("../models/wine")
 console.log(db)
 //Route logic
 
@@ -19,9 +19,10 @@ const getWine = (req,res) => {
 }
 
 
-//Post Create Route
+
+//Post Create Route to create a new entry when the new form is submitted
 const createWine = (req,res) => {
-    db.Wine.create(req.body)
+    return db.Wine.create(req.body)
     .then((createdWine) => {
         if(!createdWine) {
             res.status(400).json({message: "Cannot create a new wine."})
@@ -32,7 +33,7 @@ const createWine = (req,res) => {
 
 }
 
-//  UPDATE ROUTE
+//  UPDATE ROUTE to update information or rating for a wine
 const updateWine = (req, res) => {
     db.Wine.findByIdAndUpdate(req.params.id, req.body, {new: true})
     .then((updatedWine) => {
@@ -44,22 +45,30 @@ const updateWine = (req, res) => {
     })
 }
 
-// DELETE ROUTE
+// DELETE ROUTE 
 const deleteWine = (req, res) => {
     db.Wine.findByIdAndDelete(req.params.id)
     .then((deletedWine) => {
         if(!deletedWine){
             res.status(400).json({Message: 'Could not delete wine'})
+            console.log(deletedWine)
         } else {
             res.status(200).json({Data: deletedWine, Message: "Wine deleted"})
-        }
-    })
-}
-
+            console.log(deletedWine)
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+          res.status(500).json({Message: 'Server error'});
+        });
+        return;
+    }
 
 module.exports = {
     getWine,
     createWine,
     deleteWine,
-    updateWine
+    updateWine,
+    // seedData,
+    // getWineById
 }
