@@ -12,16 +12,21 @@ const MONGODB_URI = process.env.MONGODB_URI
 console.log(MONGODB_URI)
 console.log("testing")
 
+// // connect to MongoDB Atlas database
+// mongoose.connect(MONGODB_URI, {
+//   useUnifiedTopology: true,
+//   useNewUrlParser: true
+// }).then(() => {
+//   console.log('Connected to MongoDB Atlas');
+// }).catch((err) => {
+//   console.log('Error connecting to MongoDB Atlas:', err);
+// });
 // connect to MongoDB Atlas database
-mongoose.connect(MONGODB_URI, {
-  useUnifiedTopology: true,
-  useNewUrlParser: true
-}).then(() => {
+mongoose.connect(MONGODB_URI).then(() => {
   console.log('Connected to MongoDB Atlas');
 }).catch((err) => {
   console.log('Error connecting to MongoDB Atlas:', err);
 });
-
 
 //Middleware
 app.use(cors())
