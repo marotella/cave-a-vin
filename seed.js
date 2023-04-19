@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 const Wine = require('./models/wine'); // replace with your own Wine model
 require("dotenv").config()
-const DATABASE_URL = process.env.DATABASE_URL
+const MONGODB_URI = process.env.MONGODB_URI
 
 // connect to MongoDB Atlas database
-mongoose.connect(DATABASE_URL, {
+mongoose.connect(MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 }).then(() => {
