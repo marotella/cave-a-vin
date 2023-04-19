@@ -2,18 +2,20 @@
 require("dotenv").config()
 const express = require("express")
 const cors = require("cors")
-const session = require('express-session')
+const mongoose = require('mongoose');
 const db = mongoose.connection;
-require('dotenv').config()
 //Objects/Variables
+
+
 const app = express()
 const routes = require("./routes/index")
 const MONGODB_URI = process.env.MONGODB_URI
-
+console.log(MONGODB_URI)
 // connect to MongoDB Atlas database
 mongoose.connect(MONGODB_URI, {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
+  useFindAndModify: false 
 }).then(() => {
   console.log('Connected to MongoDB Atlas');
 }).catch((err) => {
@@ -25,14 +27,6 @@ mongoose.connect(MONGODB_URI, {
 app.use(cors())
 app.use(express.urlencoded({extended: true}))
 app.use(express.json()); // parse json bodies
-
-// Session middlware
-app.use(session({
-    secret: SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false
-  }));
-
 
 //Routes
 app.use("/", routes)
