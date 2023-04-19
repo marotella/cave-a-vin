@@ -1,6 +1,9 @@
 {
   "name": "cave-a-vin-backend",
   "version": "1.0.0",
+  "engines": {
+    "node": "18.14.0"
+  },
   "description": "A virtual wine cellar, where you can find, review, and view wines.",
   "main": "index.js",
   "scripts": {
