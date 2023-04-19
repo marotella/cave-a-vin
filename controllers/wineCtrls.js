@@ -69,6 +69,5 @@ module.exports = {
     createWine,
     deleteWine,
     updateWine,
-    // seedData,
-    // getWineById
+
 }
