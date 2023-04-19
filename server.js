@@ -4,18 +4,18 @@ const express = require("express")
 const cors = require("cors")
 const mongoose = require('mongoose');
 const db = mongoose.connection;
+
 //Objects/Variables
-
-
 const app = express()
 const routes = require("./routes/index")
 const MONGODB_URI = process.env.MONGODB_URI
 console.log(MONGODB_URI)
 console.log("testing")
+
 // connect to MongoDB Atlas database
 mongoose.connect(MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
+  useNewUrlParser: true
 }).then(() => {
   console.log('Connected to MongoDB Atlas');
 }).catch((err) => {
