@@ -42,7 +42,7 @@ const updateWine = (req, res) => {
     })
 }
 
-// DELETE ROUTE 
+// DELETE ROUTE: Removes a wine from the database
 const deleteWine = (req, res) => {
     db.Wine.findByIdAndDelete(req.params.id)
     .then((deletedWine) => {
