@@ -5,7 +5,7 @@ console.log(db)
 //Route logic
 
 
-//Get Index Route
+//GET INDEX Route
 const getWine = (req,res) => {
     db.Wine.find({})
     .then((foundWine) =>{
@@ -17,9 +17,7 @@ const getWine = (req,res) => {
     })
 }
 
-
-
-//Post Create Route to create a new entry when the new form is submitted
+//POST CREATE Route to create a new entry when the new form is submitted
 const createWine = (req,res) => {
     return db.Wine.create(req.body)
     .then((createdWine) => {

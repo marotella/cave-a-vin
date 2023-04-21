@@ -1,7 +1,6 @@
 const router =require("express").Router()
 const {wineCtrl} = require("../controllers")
 
-
 //ROUTES:
 router.get("/", wineCtrl.getWine) //Pulls in the wine data for the index page
 router.post("/:id", wineCtrl.createWine) //shows data for a specific wine
